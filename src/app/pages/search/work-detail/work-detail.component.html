@@ -1,0 +1,18 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <h1 class="font-medium text-ebony-clay col-span-4">{{ job.Cim }}</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <h1 class="font-medium text-ebony-clay col-span-2">{{ job.ceg }}</h1>
+    <h1 class="font-medium text-ebony-clay col-span-2">{{ job.Varos }}</h1>
+    <h1 class="font-medium text-ebony-clay col-span-2">
+      {{ job.Ber | wagePipe }}
+    </h1>
+    <h1 class="font-medium text-ebony-clay col-span-2">
+      {{ job.when | timePipe }}
+    </h1>
+    <h1 class="font-medium text-ebony-clay col-span-4">{{ job.Leiras }}</h1>
+  </mat-card-content>
+</mat-card>

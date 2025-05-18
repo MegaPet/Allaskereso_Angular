@@ -1,0 +1,79 @@
+<div class="flex flex-col gap-4 items-center">
+  <div class="">
+    <h1 class="text-4xl font-semibold text-ebony-clay mt-10 text-center">
+      Prof<span class="text-bali-hai">Session</span>
+    </h1>
+    <h2 class="text-2xl font-medium text-ebony-clay text-center">
+      Welcome Back!
+    </h2>
+  </div>
+
+  <div class="flex flex-col items-center w-full">
+    <h2 class="text-mystic text-xl font-medium">Log In</h2>
+    <form
+      [formGroup]="login_form"
+      class="bg-ebony-clay p-4 rounded-2xl text-mystic flex flex-col w-full items-center justify-center"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field class="w-full">
+        <mat-label class="font-medium">Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+        />
+        @if (login_form.get('email')?.hasError('required') ) {
+            <mat-error class="pt-0.5 text-xs">Email is <strong class="font-medium text-crimson">required</strong></mat-error>
+          }  
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="'password'"
+          formControlName="password"
+        />
+        @if (login_form.get('password')?.hasError('required') ) {
+            <mat-error class="pt-0.5 text-xs">Password is <strong class="font-medium text-crimson">required</strong></mat-error>
+          }  
+            @else if (login_form.get('password')?.hasError('minlength') ) {
+            <mat-error class="pt-0.5 w-full text-xs">
+              Password must be at least <strong class="font-medium" appRedFont>{{ login_form.get('password')?.errors?.['minlength']?.requiredLength }}</strong> characters
+              
+            </mat-error>
+            }
+      </mat-form-field>
+
+      <input
+        type="submit"
+        value="Log in"
+        class="bg-monza p-2 pl-4 pr-4 mt-4 rounded-xl font-medium text-mystic shadow-2xl"
+      />
+    </form>
+  </div>
+
+  <p class="text-ebony-clay font-medium">
+    Do you not have an account?
+    <a href="/register" class="text-monza cursor-pointer text-center"
+      >Register</a
+    >!
+  </p>
+  <p>or</p>
+  <div
+    class="w-full bg-mystic rounded-2xl p-4 flex items-center gap-1 justify-center  cursor-pointer" appShadow
+  >
+    <img src="assets/icons/google-logo.jpg" alt="Google icon" class="max-h-6" />
+    <h2 class="text-xl font-medium text-ebony-clay">Log in with Google</h2>
+  </div>
+
+  <div
+    class="w-full bg-mystic rounded-2xl p-4 flex items-center gap-2 justify-center cursor-pointer" appShadow
+  >
+    <img
+      src="assets/icons/facebook-logo.jpg"
+      alt="Google icon"
+      class="max-h-6"
+    />
+    <h2 class="text-xl font-medium text-ebony-clay">Log in with Facebook</h2>
+  </div>
+</div>

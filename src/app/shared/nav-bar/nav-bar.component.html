@@ -1,0 +1,41 @@
+<div class="hidden bg-ebony-clay p-4 md:flex justify-around items-end pl-78 pr-78 text-xl">
+  <a href="/home" class="text-mystic font-medium">Prof<span class="text-bali-hai">Session</span></a>
+  <div class="flex gap-4 ml-auto">
+    @if (!isLogged()) {
+    <a href="/login" class="text-mystic font-medium">Log in</a>
+    }@else{
+    <a href="/profile" class="text-mystic font-medium">Profile</a>
+    }
+    <a href="/search" class="text-mystic font-medium">Search</a>
+  </div>
+</div>
+
+<div
+  class="bg-ebony-clay flex items-center justify-around h-1/12 w-11/12 rounded-4xl text-mystic fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 border-4 border-mystic md:hidden"
+>
+  <a href="/search">
+    <button mat-mini-fab class="bg-ebony-clay text-mystic shadow-none">
+      <mat-icon>search</mat-icon>
+    </button>
+  </a>
+  <a href="/home">
+    <button mat-mini-fab class="bg-ebony-clay text-mystic shadow-none">
+      <mat-icon>home</mat-icon>
+    </button>
+  </a>
+
+  <!-- <button mat-raised-button class="bg-blue-600 text-white hover:bg-blue-700">Tailwind szín</button> -->
+  @if(!isLogged()){
+  <a href="/login"
+    ><button mat-mini-fab class="bg-ebony-clay text-mystic">
+      <mat-icon>login</mat-icon>
+    </button></a
+  >
+  }@else {
+  <a href="/profile"
+    ><button mat-mini-fab class="bg-ebony-clay text-mystic">
+      <mat-icon>person</mat-icon>
+    </button></a
+  >
+  }
+</div>

@@ -1,0 +1,19 @@
+<div class="flex flex-col bg-ebony-clay p-4 rounded-2xl items-center text-mystic">
+  <h2 class="text-mystic mb-4 text-xl font-medium">Find a job!</h2>
+  <form action="" class="flex flex-col items-center w-full" (ngSubmit)="submit()" [formGroup]="search_form">
+    <mat-form-field class="w-full">
+    <mat-label>Category</mat-label>
+    <input matInput placeholder="Ex. Informatics" formControlName="category"/>
+  </mat-form-field>
+  <mat-form-field class="w-full">
+    <mat-label>City</mat-label>
+    <input matInput placeholder="Ex. Szeged" formControlName="city"/>
+  </mat-form-field>
+  <input
+        appPointer
+        type="submit"
+        value="Log in"
+        class="bg-monza p-2 pl-4 pr-4 rounded-xl font-medium text-mystic shadow-2xl"
+      />
+  </form>
+</div>

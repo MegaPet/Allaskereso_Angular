@@ -1,0 +1,15 @@
+@if( message ){
+<div class="w-full rounded-2xl bg-mystic shadow-2xl mt-10 p-4" [appShow]="show_error">
+  <h1 class="text-monza font-bold text-xl text-center">Error</h1>
+  <p class="border-t-2 border-monza pt-2 text-ebony-clay font-normal">
+    {{ message.message }}
+  </p>
+</div>
+
+<div class="w-full rounded-2xl bg-mystic shadow-2xl mt-10 p-4" [appShow]="show_success">
+  <h1 class="text-green-700 font-bold text-xl text-center">Success</h1>
+  <p class="border-t-2 border-green-700 pt-2 text-ebony-clay font-normal">
+    {{ message.message }}
+  </p>
+</div>
+}

@@ -1,0 +1,28 @@
+<div class="grid grid-cols-6 outline-1 bg-ebony-clay rounded-2xl p-8">
+  <div class="col-span-6 items-center justify-center align-middle mb-4">
+    <div class="w-20 h-20 bg-bali-hai rounded-full col-span-6 mx-auto my-0"></div>
+  </div>
+  @if(legit_user_data){
+  <div class="flex flex-col gap-1 col-span-9 pt-2 items-center">
+    <h2 class="col-span-2 font-normal line-clamp-1 text-mystic">
+      {{ legit_user_data.email }}
+    </h2>
+    <h2 class="col-span-2 font-normal line-clamp-1 text-mystic">
+      Number of applications:
+      <span class="text-monza font-medium">{{
+        legit_user_data.job_ids.length
+      }}</span>
+    </h2>
+    <h2 class="col-span-2 font-normal line-clamp-1 text-mystic">
+      {{ legit_user_data.name }}
+    </h2>
+  </div>
+  }@else{
+  <div class="flex flex-col gap-2 col-span-9 pt-4 items-center">
+    <div class="animate-pulse p-2 rounded-2xl bg-bali-hai h-0 w-[86%]"></div>
+    <div class="animate-pulse p-2 rounded-2xl bg-bali-hai h-0 w-[75%]"></div>
+    <div class="animate-pulse p-2 rounded-2xl bg-bali-hai h-0 w-[55%]"></div>
+  </div>
+
+  }
+</div>

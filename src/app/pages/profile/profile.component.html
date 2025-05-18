@@ -1,0 +1,14 @@
+<div class="relative flex flex-col gap-4">
+  <button
+    class="bg-ebony-clay p-2 pl-4 pr-4 rounded-2xl font-medium text-mystic right-1 top-0 w-fit self-end"
+    (click)="logOut()"
+    >
+    Log out
+  </button>
+
+  <app-profile-data [user_data]="currentUser"></app-profile-data>
+
+  <app-modify-form [user_data]="currentUser" (msg)="msg = $event"></app-modify-form>
+
+  <app-message-handler [message]="msg"></app-message-handler>
+</div>

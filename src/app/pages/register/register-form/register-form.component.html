@@ -1,0 +1,85 @@
+<form
+  class="flex flex-col gap-0 bg-ebony-clay p-4 rounded-2xl text-mystic items-center w-full"
+  [formGroup]="register_form"
+  (ngSubmit)="submit()"
+>
+  <mat-progress-bar
+    mode="determinate"
+    [value]="(progress * 100) / 5"
+    color="accent"
+    class="mt-4"
+  ></mat-progress-bar>
+
+  <mat-form-field class="w-full mt-6">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" />
+    @if (register_form.get('email')?.hasError("required")) {
+    <mat-error class="text-xs"
+      >Email is
+      <strong class="text-crimson font-medium">required</strong>.</mat-error
+    >
+    } @else if (register_form.get("email")?.hasError("email")) {
+    <mat-error class="text-xs"
+      >Email must be in the right
+      <strong class="text-crimson font-medium">format</strong>.</mat-error
+    >
+
+    }
+  </mat-form-field>
+
+  <mat-form-field class="w-full">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" formControlName="name" />
+    @if (register_form.get('name')?.hasError("required")) {
+    <mat-error class="text-xs"
+      >Name is
+      <strong class="text-crimson font-medium">required</strong>.</mat-error
+    >
+    }
+  </mat-form-field>
+
+  <div class="relative">
+    <mat-form-field class="w-full">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password_1" />
+      @if (register_form.get('password_1')?.hasError("required")) {
+      <mat-error class="text-xs"
+        >Password is
+        <strong class="text-crimson font-medium">required</strong>.</mat-error
+      >
+      }@else if (register_form.get("password_1")?.hasError("minlength")) {
+       <mat-error class="text-xs"
+        >Password must be atleast
+        <strong class="text-crimson font-medium">6</strong> characters long.</mat-error
+      > 
+      }
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <mat-label>Confirm password</mat-label>
+      <input matInput type="password" formControlName="password_2" />
+      @if (register_form.get('password_2')?.hasError("required")) {
+      <mat-error class="text-xs"
+        >Password is
+        <strong class="text-crimson font-medium">required</strong>.</mat-error
+      >
+      }@else if (register_form.get("password_2")?.hasError("minlength")) {
+       <mat-error class="text-xs"
+        >Password must be atleast
+        <strong class="text-crimson font-medium">6</strong> characters long.</mat-error
+      > 
+      }
+    </mat-form-field>
+    @if (password_compare()) {
+    <mat-error class="text-xs absolute pl-4"
+      >Passwords do
+      <strong class="text-crimson font-medium ">not</strong> match.
+    </mat-error>
+    }
+  </div>
+  <input
+    type="submit"
+    value="Register"
+    [disabled]="can_register"
+    class="p-2 pl-4 pr-4 bg-monza w-fit rounded-2xl disabled:bg-bali-hai mt-6"
+  />
+</form>

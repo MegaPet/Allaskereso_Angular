@@ -1,0 +1,10 @@
+<div class="flex flex-col gap-0 mt-10">
+  <h1 class="text-4xl font-semibold text-ebony-clay text-center">
+    Prof<span class="text-bali-hai">Session</span>
+  </h1>
+  <h2 class="text-2xl font-semibold text-ebony-clay text-center">Register</h2>
+
+  <app-register-form class="mt-8" (msg)="temp_msg = $event"></app-register-form>
+</div>
+
+<app-message-handler [message]="temp_msg"></app-message-handler>

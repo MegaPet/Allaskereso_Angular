@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-4">
+  <app-search-bar-real (jobs)="set($event)"></app-search-bar-real>
+
+  @if (jobs) { @for (job of jobs; track $index) {
+    <app-work-detail [job] ="job"></app-work-detail>
+  } }@else if( searched) {
+  <div class="w-full bg-ebony-clay p-4 rounded-2xl">
+    <h2 class="text-mystic font-medium text-center">
+      Sajnos nem találtunk munkát
+    </h2>
+  </div>
+  }
+</div>
